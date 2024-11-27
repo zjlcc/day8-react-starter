@@ -1,20 +1,22 @@
 import {useState} from 'react';
 
-const Counter = () => {
+const Counter = (props) => {
   const [count, setCount] = useState(0)
 
-  function increate () {
+  function increase () {
     setCount(count + 1);
+    props.setSum(props.sum+1);
   }
 
-  function decreate () {
-    setCount(count - 1)
+  function decrease () {
+    setCount(count - 1);
+    props.setSum(props.sum-1);
   }
 
   return (<div>
-    <button onClick={increate}>+</button>
+    <button onClick={increase}>+</button>
     <span>{count}</span>
-    <button onClick={decreate}>-</button>
+    <button onClick={decrease}>-</button>
   </div>)
 
 
